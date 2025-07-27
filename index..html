@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nargiza Tunçel Beauty Center</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #a57ba7;
+            --secondary: #8a5a8c;
+            --accent: #e74c3c;
+            --light: #f9f6f9;
+            --dark: #2c3e50;
+            --text: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #ffffff;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .language-selector {
+            display: flex;
+        }
+        
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--text-light);
+            cursor: pointer;
+            padding: 0.5rem;
+            margin-left: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-radius: 4px;
+        }
+        
+        .lang-btn.active {
+            color: var(--primary);
+            background: rgba(165, 123, 167, 0.1);
+        }
+        
+        .lang-btn:hover {
+            color: var(--primary);
+        }
+        
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            display: inline-block;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Price List */
+        .price-list {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+        
+        .price-header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #eee;
+            transition: all 0.3s;
+        }
+        
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        
+        .price-item:hover {
+            background-color: rgba(165, 123, 167, 0.05);
+            transform: translateX(5px);
+        }
+        
+        .service-name {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .service-price {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-section p, .footer-section a {
+            color: #bbb;
+            margin-bottom: 0.8rem;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+            color: #bbb;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 1rem;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+            
+            .language-selector {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            .price-header, .price-item {
+                padding: 1rem;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .service-price {
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo" id="company-name">Nargiza Tunçel Beauty Center</div>
+            <p id="header-subtitle">Ваш путь к красоте</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container nav-container">
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#" data-translate="nav.home">Главная</a></li>
+                <li><a href="#" data-translate="nav.services">Услуги</a></li>
+                <li><a href="#" data-translate="nav.about">О нас</a></li>
+                <li><a href="#" data-translate="nav.contact">Контакты</a></li>
+            </ul>
+            <div class="language-selector">
+                <button class="lang-btn" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="tr">TR</button>
+            </div>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="container">
+            <section class="price-section">
+                <div class="section-title">
+                    <h2 data-translate="price.title">Наши услуги и цены</h2>
+                </div>
+                
+                <div class="price-list">
+                    <div class="price-header">
+                        <span data-translate="price.service">Услуга</span>
+                        <span data-translate="price.price">Цена</span>
+                    </div>
+                    <div id="price-items-container">
+                        <!-- Price items will be inserted here by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 data-translate="footer.about">О нас</h3>
+                    <p id="footer-about">Мы предоставляем профессиональные услуги красоты с высочайшими стандартами качества.</p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-translate="footer.contact">Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <span id="footer-address">Адрес: ул. Примерная, 123</span></p>
+                    <p><i class="fas fa-phone"></i> <span id="footer-phone">+90 548 839 8888</span></p>
+                    <p><i class="fas fa-envelope"></i> <span id="footer-email">info@nargizatuncel.com</span></p>
+                </div>
+                <div class="footer-section">
+                    <h3 data-translate="footer.social">Соцсети</h3>
+                    <div class="social-links">
+                        <a href="https://wa.me/905488398888" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/nargizatuncel_beautycenter" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p id="footer-copyright">&copy; <span id="current-year">2023</span> Nargiza Tunçel Beauty Center. <span data-translate="footer.rights">Все права защищены</span>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Translation data
+        const translations = {
+            ru: {
+                companyName: "Nargiza Tunçel Beauty Center",
+                headerSubtitle: "Ваш путь к красоте",
+                nav: {
+                    home: "Главная",
+                    services: "Услуги",
+                    about: "О нас",
+                    contact: "Контакты"
+                },
+                price: {
+                    title: "Наши услуги и цены",
+                    service: "Услуга",
+                    price: "Цена"
+                },
+                prices: [
+                    { name: "Классический маникюр", price: "600 TL" },
+                    { name: "Гель-маникюр (базовый)", price: "1200 TL" },
+                    { name: "Гелевое заполнение", price: "1000 TL" },
+                    { name: "Перманентное покрытие", price: "900 TL" },
+                    { name: "Снятие геля и перманентного покрытия", price: "350 TL" },
+                    { name: "Ремонт ногтя (1 ноготь)", price: "200 TL" },
+                    { name: "Уход за руками + массаж (30 мин)", price: "700 TL" },
+                    { name: "Парафиновый уход для рук", price: "600 TL" },
+                    { name: "Свадебный уход за ногтями", price: "5500 TL" },
+                    { name: "Педикюр", price: "1000 TL" },
+                    { name: "Мужской педикюр", price: "1300 TL" },
+                    { name: "Педикюр + перманентное покрытие", price: "1500 TL" },
+                    { name: "Перманентное покрытие на ногах", price: "900 TL" },
+                    { name: "Уход за стопами + массаж (40 мин)", price: "1000 TL" },
+                    { name: "Парафиновый уход для стоп", price: "700 TL" },
+                    { name: "Классический уход за кожей", price: "2600 TL" },
+                    { name: "Медицинский уход за кожей", price: "2600 TL" },
+                    { name: "Уход Hydroface", price: "2600 TL" },
+                    { name: "Кислородная терапия", price: "2600 TL" },
+                    { name: "Специальный протокол ухода за кожей", price: "2500 TL" },
+                    { name: "Протокол удаления пигментации", price: "3000 TL" },
+                    { name: "Протокол от акне (1 сеанс)", price: "2500 TL" },
+                    { name: "Уход для подростков", price: "2600 TL" },
+                    { name: "Анти-эйдж уход", price: "2600 TL" },
+                    { name: "Уход за спиной", price: "2800 TL" },
+                    { name: "Уход за спиной и зоной декольте + массаж", price: "3500 TL" },
+                    { name: "Уход с золотой иглой (1 сеанс)", price: "200$ (+50$ за иглу)" },
+                    { name: "Шея + лицо с золотой иглой", price: "250$ (+50$ за иглу)" },
+                    { name: "Карбоновый пилинг", price: "1500 TL" },
+                    { name: "Морской водорослевый пилинг", price: "5500 TL" },
+                    { name: "Dermapen (1 сеанс)", price: "5500 TL" },
+                    { name: "Испанское сияние", price: "3000 TL" },
+                    { name: "Удаление пигментации + анти-эйдж протокол", price: "3500 TL" },
+                    { name: "Лазерная эпиляция (Dual & Cool Laser)", price: "от 1000 TL" },
+                    { name: "G5 массаж (10 сеансов)", price: "7000 TL" },
+                    { name: "Лимфодренажный массаж (10 сеансов по 30 мин)", price: "5000 TL" },
+                    { name: "G5 + Sculpture + Лимфодренаж (10 сеансов)", price: "12000 TL" },
+                    { name: "Sculpture курс похудения (10 сеансов на зону)", price: "12000 TL" },
+                    { name: "Комплекс от целлюлита", price: "13000 TL + 1 сеанс" },
+                    { name: "Антицеллюлитный массаж (60 мин, ноги)", price: "1800 TL" },
+                    { name: "Микроблейдинг бровей", price: "10000 TL" },
+                    { name: "Пудровые брови", price: "10000 TL" },
+                    { name: "Смешанные брови", price: "10000 TL" },
+                    { name: "Контур и окрашивание губ", price: "10000 TL" },
+                    { name: "Перманентная подводка", price: "8000 TL" },
+                    { name: "Бэби-лайнер", price: "7000 TL" },
+                    { name: "Линия роста ресниц", price: "8000 TL" },
+                    { name: "Ламинирование ресниц", price: "1500 TL" },
+                    { name: "Ламинирование бровей", price: "1500 TL" },
+                    { name: "Удаление волос на бровях и губах", price: "350 TL" },
+                    { name: "Формирование и окрашивание бровей", price: "500 TL" },
+                    { name: "Витаминный уход для бровей", price: "1500 TL" },
+                    { name: "Окрашивание ресниц", price: "500 TL" },
+                    { name: "Наращивание шёлковых ресниц", price: "1500 TL" },
+                    { name: "Снятие шёлковых ресниц", price: "500 TL" },
+                    { name: "Коррекция шёлковых ресниц (15 дней)", price: "800 TL" },
+                    { name: "Витаминный уход за ресницами (каждые 15 дней)", price: "1500 TL" }
+                ],
+                footer: {
+                    about: "О нас",
+                    contact: "Контакты",
+                    social: "Соцсети",
+                    rights: "Все права защищены"
+                }
+            },
+            en: {
+                companyName: "Nargiza Tunçel Beauty Center",
+                headerSubtitle: "Your path to beauty",
+                nav: {
+                    home: "Home",
+                    services: "Services",
+                    about: "About",
+                    contact: "Contact"
+                },
+                price: {
+                    title: "Our Services and Prices",
+                    service: "Service",
+                    price: "Price"
+                },
+                prices: [
+                    { name: "Classic manicure", price: "600 TL" },
+                    { name: "Gel manicure (basic)", price: "1200 TL" },
+                    { name: "Gel filling", price: "1000 TL" },
+                    { name: "Permanent coating", price: "900 TL" },
+                    { name: "Gel and permanent coating removal", price: "350 TL" },
+                    { name: "Nail repair (1 nail)", price: "200 TL" },
+                    { name: "Hand care + massage (30 min)", price: "700 TL" },
+                    { name: "Paraffin hand care", price: "600 TL" },
+                    { name: "Bridal nail care", price: "5500 TL" },
+                    { name: "Pedicure", price: "1000 TL" },
+                    { name: "Men's pedicure", price: "1300 TL" },
+                    { name: "Pedicure + permanent coating", price: "1500 TL" },
+                    { name: "Permanent coating for feet", price: "900 TL" },
+                    { name: "Foot care + massage (40 min)", price: "1000 TL" },
+                    { name: "Paraffin foot care", price: "700 TL" },
+                    { name: "Classic skin care", price: "2600 TL" },
+                    { name: "Medical skin care", price: "2600 TL" },
+                    { name: "Hydroface care", price: "2600 TL" },
+                    { name: "Oxygen therapy", price: "2600 TL" },
+                    { name: "Special skin care protocol", price: "2500 TL" },
+                    { name: "Pigmentation removal protocol", price: "3000 TL" },
+                    { name: "Acne protocol (1 session)", price: "2500 TL" },
+                    { name: "Teen care", price: "2600 TL" },
+                    { name: "Anti-aging care", price: "2600 TL" },
+                    { name: "Back care", price: "2800 TL" },
+                    { name: "Back and décolleté care + massage", price: "3500 TL" },
+                    { name: "Golden needle care (1 session)", price: "200$ (+50$ for needle)" },
+                    { name: "Neck + face with golden needle", price: "250$ (+50$ for needle)" },
+                    { name: "Carbon peel", price: "1500 TL" },
+                    { name: "Seaweed peel", price: "5500 TL" },
+                    { name: "Dermapen (1 session)", price: "5500 TL" },
+                    { name: "Spanish glow", price: "3000 TL" },
+                    { name: "Pigmentation removal + anti-aging protocol", price: "3500 TL" },
+                    { name: "Laser hair removal (Dual & Cool Laser)", price: "from 1000 TL" },
+                    { name: "G5 massage (10 sessions)", price: "7000 TL" },
+                    { name: "Lymphatic drainage massage (10 sessions of 30 min)", price: "5000 TL" },
+                    { name: "G5 + Sculpture + Lymphatic drainage (10 sessions)", price: "12000 TL" },
+                    { name: "Sculpture weight loss course (10 sessions per zone)", price: "12000 TL" },
+                    { name: "Anti-cellulite complex", price: "13000 TL + 1 session" },
+                    { name: "Anti-cellulite massage (60 min, legs)", price: "1800 TL" },
+                    { name: "Microblading eyebrows", price: "10000 TL" },
+                    { name: "Powder eyebrows", price: "10000 TL" },
+                    { name: "Mixed eyebrows", price: "10000 TL" },
+                    { name: "Lip contour and coloring", price: "10000 TL" },
+                    { name: "Permanent eyeliner", price: "8000 TL" },
+                    { name: "Baby liner", price: "7000 TL" },
+                    { name: "Lash line", price: "8000 TL" },
+                    { name: "Lash lifting", price: "1500 TL" },
+                    { name: "Brow lamination", price: "1500 TL" },
+                    { name: "Eyebrow and lip hair removal", price: "350 TL" },
+                    { name: "Eyebrow shaping and coloring", price: "500 TL" },
+                    { name: "Vitamin eyebrow care", price: "1500 TL" },
+                    { name: "Eyelash coloring", price: "500 TL" },
+                    { name: "Silk eyelash extensions", price: "1500 TL" },
+                    { name: "Silk eyelash removal", price: "500 TL" },
+                    { name: "Silk eyelash correction (15 days)", price: "800 TL" },
+                    { name: "Vitamin lash care (every 15 days)", price: "1500 TL" }
+                ],
+                footer: {
+                    about: "About Us",
+                    contact: "Contact",
+                    social: "Social Media",
+                    rights: "All rights reserved"
+                }
+            },
+            tr: {
+                companyName: "Nargiza Tunçel Beauty Center",
+                headerSubtitle: "Güzelliğinize giden yol",
+                nav: {
+                    home: "Ana Sayfa",
+                    services: "Hizmetler",
+                    about: "Hakkımızda",
+                    contact: "İletişim"
+                },
+                price: {
+                    title: "Hizmetlerimiz ve Fiyatlar",
+                    service: "Hizmet",
+                    price: "Fiyat"
+                },
+                prices: [
+                    { name: "Klasik manikür", price: "600 TL" },
+                    { name: "Jel manikür (temel)", price: "1200 TL" },
+                    { name: "Jel dolgu", price: "1000 TL" },
+                    { name: "Kalıcı kaplama", price: "900 TL" },
+                    { name: "Jel ve kalıcı kaplama çıkarma", price: "350 TL" },
+                    { name: "Tırnak tamiri (1 tırnak)", price: "200 TL" },
+                    { name: "El bakımı + masaj (30 dk)", price: "700 TL" },
+                    { name: "Parafin el bakımı", price: "600 TL" },
+                    { name: "Gelin tırnak bakımı", price: "5500 TL" },
+                    { name: "Pedi̇kür", price: "1000 TL" },
+                    { name: "Erkek pedikürü", price: "1300 TL" },
+                    { name: "Pedi̇kür + kalıcı kaplama", price: "1500 TL" },
+                    { name: "Ayaklar için kalıcı kaplama", price: "900 TL" },
+                    { name: "Ayak bakımı + masaj (40 dk)", price: "1000 TL" },
+                    { name: "Parafin ayak bakımı", price: "700 TL" },
+                    { name: "Klasik cilt bakımı", price: "2600 TL" },
+                    { name: "Tıbbi cilt bakımı", price: "2600 TL" },
+                    { name: "Hydroface bakımı", price: "2600 TL" },
+                    { name: "Oksijen terapisi", price: "2600 TL" },
+                    { name: "Özel cilt bakım protokolü", price: "2500 TL" },
+                    { name: "Pigmentasyon giderme protokolü", price: "3000 TL" },
+                    { name: "Akne protokolü (1 seans)", price: "2500 TL" },
+                    { name: "Genç bakımı", price: "2600 TL" },
+                    { name: "Anti-aging bakım", price: "2600 TL" },
+                    { name: "Sırt bakımı", price: "2800 TL" },
+                    { name: "Sırt ve dekolte bakımı + masaj", price: "3500 TL" },
+                    { name: "Altın iğne bakımı (1 seans)", price: "200$ (+50$ iğne için)" },
+                    { name: "Boyun + yüz altın iğne ile", price: "250$ (+50$ iğne için)" },
+                    { name: "Karbon peeling", price: "1500 TL" },
+                    { name: "Deniz yosunu peeling", price: "5500 TL" },
+                    { name: "Dermapen (1 seans)", price: "5500 TL" },
+                    { name: "İspanyol ışıltısı", price: "3000 TL" },
+                    { name: "Pigmentasyon giderme + anti-aging protokol", price: "3500 TL" },
+                    { name: "Lazer epilasyon (Dual & Cool Laser)", price: "1000 TL'den başlayan fiyatlar" },
+                    { name: "G5 masajı (10 seans)", price: "7000 TL" },
+                    { name: "Lenf drenaj masajı (30 dakikalık 10 seans)", price: "5000 TL" },
+                    { name: "G5 + Sculpture + Lenf drenaj (10 seans)", price: "12000 TL" },
+                    { name: "Sculpture zayıflama kursu (bölge başına 10 seans)", price: "12000 TL" },
+                    { name: "Selülit kompleksi", price: "13000 TL + 1 seans" },
+                    { name: "Selülit masajı (60 dk, bacaklar)", price: "1800 TL" },
+                    { name: "Microblading kaş", price: "10000 TL" },
+                    { name: "Pudra kaş", price: "10000 TL" },
+                    { name: "Karma kaş", price: "10000 TL" },
+                    { name: "Dudak kontürü ve renklendirme", price: "10000 TL" },
+                    { name: "Kalıcı eyeliner", price: "8000 TL" },
+                    { name: "Baby liner", price: "7000 TL" },
+                    { name: "Kirpik çizgisi", price: "8000 TL" },
+                    { name: "Kirpik lamine", price: "1500 TL" },
+                    { name: "Kaş lamine", price: "1500 TL" },
+                    { name: "Kaş ve dudak tüyü alımı", price: "350 TL" },
+                    { name: "Kaş şekillendirme ve renklendirme", price: "500 TL" },
+                    { name: "Vitamin kaş bakımı", price: "1500 TL" },
+                    { name: "Kirpik boyama", price: "500 TL" },
+                    { name: "İpek kirpik uzatma", price: "1500 TL" },
+                    { name: "İpek kirpik çıkarma", price: "500 TL" },
+                    { name: "İpek kirpik düzeltme (15 gün)", price: "800 TL" },
+                    { name: "Vitamin kirpik bakımı (her 15 günde bir)", price: "1500 TL" }
+                ],
+                footer: {
+                    about: "Hakkımızda",
+                    contact: "İletişim",
+                    social: "Sosyal Medya",
+                    rights: "Tüm hakları saklıdır"
+                }
+            }
+        };
+
+        // Current language
+        let currentLanguage = 'ru';
+
+        // Function to change language
+        function changeLanguage(lang) {
+            currentLanguage = lang;
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+            updateContent();
+        }
+
+        // Function to update content based on current language
+        function updateContent() {
+            const trans = translations[currentLanguage];
+            
+            // Update header
+            document.getElementById('company-name').textContent = trans.companyName;
+            document.getElementById('header-subtitle').textContent = trans.headerSubtitle;
+            
+            // Update navigation
+            document.querySelectorAll('[data-translate]').forEach(el => {
+                const key = el.dataset.translate;
+                const keys = key.split('.');
+                let value = trans;
+                
+                for (const k of keys) {
+                    value = value[k];
+                }
+                
+                el.textContent = value;
+            });
+            
+            // Update price list
+            const priceList = document.getElementById('price-items-container');
+            priceList.innerHTML = '';
+            
+            trans.prices.forEach(item => {
+                const priceItem = document.createElement('div');
+                priceItem.className = 'price-item';
+                priceItem.innerHTML = `
+                    <span class="service-name">${item.name}</span>
+                    <span class="service-price">${item.price}</span>
+                `;
+                priceList.appendChild(priceItem);
+            });
+            
+            // Update footer
+            document.getElementById('footer-copyright').innerHTML = `&copy; <span id="current-year">${new Date().getFullYear()}</span> ${trans.companyName}. <span data-translate="footer.rights">${trans.footer.rights}</span>.`;
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+            
+            // Set up language switcher
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    changeLanguage(this.dataset.lang);
+                });
+            });
+            
+            // Initialize with Russian language
+            changeLanguage('ru');
+        });
+    </script>
+</body>
+</html>
